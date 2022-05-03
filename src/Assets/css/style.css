@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+*{
+   margin: 0;
+   padding: 0%;
+   box-sizing: border-box;
+   
+
+
+}
+
+.container {
+    margin-top: 5%;
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 160px;
+
+    background-image: url(../img/bg-header.png);
+    background-repeat: no-repeat;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ac0028+0,a90329+20,920022+44,6e001a+100 */
+/* background: #ac0028; 
+background: -moz-linear-gradient(left,  #9a1915 0%, #9a1915 20%, #681413 44%, #681413 100%);
+background: -webkit-linear-gradient(left,  #9a1915 0%,#9a1915 20%,#920022 44%,#681413 100%); 
+background: linear-gradient(to right,  #9a1915 0%,#9a1915 20%,#920022 44%,#681413 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ac0028', endColorstr='#6e001a',GradientType=1 );  */
+
+    /* clip-path: polygon(0 0, 100% 0, 100% 29%, 86% 30%, 70% 28%, 56% 24%, 41% 22%, 27% 23%, 14% 23%, 0 21%);
+    */
+    
+}
+
+.header_container{
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+header img{
+    
+    width:250px;
+    height: 70px;
+    margin-bottom: 2%;
+}
+
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+}
+
+@keyframes animate{
+    from{opacity: 1;}
+    from{opacity: 0;}
+}
+.mdl_chat{
+    width: 800px;
+    height: 650px;
+    border-radius: 30px;
+    /* background-color: rgb(255, 255, 255); */
+    position: absolute  ;
+    z-index: 1;
+    display: none;
+    animation: animate;
+    animation-duration: 800ms;
+    
+}
+.mdl_solicitacoes{
+    width: 800px;
+    height: 650px;
+    border-radius: 30px;
+    background-color: #fff;
+    position: absolute  ;
+    z-index: 1;
+    display: none;
+    animation: animate;
+    animation-duration: 800ms;
+    
+}
+.mdl_manual{
+    width: 800px;
+    height: 650px;
+    border-radius: 30px;
+    background-color:#fff;
+    position: absolute  ;
+    z-index: 1;
+    display: none;
+    /* animation: animate; */
+    animation-duration: 800ms;
+    
+}
+.btn{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+    font-size: 20px;
+    text-decoration: none;
+    color: white; 
+    cursor: pointer;
+    text-decoration: none;
+}
+.fechar_chat{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    float: right;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+.fechar_soli{
+    width: 30px;
+    height: 30px;
+    background-color: #e30613;
+    border-radius: 50%;
+    float: right;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+.fechar_manual{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 0, 179);
+    border-radius: 50%;
+    float: right;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+.soli{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 60%;
+}
+section a {
+    font-family: 'Montserrat', sans-serif;
+    
+    font-size: 20px;
+    text-decoration: none;
+    
+    padding: 5%;
+    border-radius: 30px;
+    text-decoration: none;
+    /* letter-spacing: 2px; */
+    color: #e30613;
+    outline: 2px solid #e30613;
+    /* padding: 40px 120px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+}
+
+section a:hover{
+    color: #fff;
+}
+section a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #e30613;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+
+}
+
+section a:hover::before{
+    width: 150%;
+}
+main{
+    /* height: 800px;
+    width: 100vw; */
+    height: 75.2vh ; 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction:column;
+}
+
+section{
+    width: 1200px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section img {
+    inset: 0;
+    object-fit: cover;
+    
+    transition: transform .75s;
+    width: 1200px;
+    height: 326px;
+    border-radius: 35px;
+    filter: drop-shadow(0px 20px 32px rgba(0, 0, 0, 0.50));
+}
+section img:hover{
+    transform: scale(1.15);
+}
+.container_img{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 1240px;
+    margin-bottom: 31px;
+}
+.imagem{
+    inset: 0;
+    object-fit: cover;
+    
+    transition: transform .75s;
+    width:373px ;
+    height: 150px;
+    border-radius: 35px;
+    filter: drop-shadow(0px 20px 32px rgba(0, 0, 0, 0.50));
+}
+.imagem:hover{
+    transform: scale(1.15);
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/bg-footer.png);
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 80px;
+}
+h1{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+
+}
