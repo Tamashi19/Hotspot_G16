@@ -21,11 +21,7 @@ export default function Header() {
         <div className="container">
           <div className="header_container">
             <img src={LOGO} alt="" />
-            <div className="modal">
-              <div className="btn" onclick={acao_chat()}>chat</div>
-              <div className="btn" onclick={acao_soli()}>solicitações</div>
-              <a className="btn" href="">manual do aluno</a>
-            </div>
+            
           </div>
         </div>
       </header>

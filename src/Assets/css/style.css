@@ -42,7 +42,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ac0028', end
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: center; 
 }
 header img{
     
