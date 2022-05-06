@@ -20,7 +20,7 @@ export default function home() {
             <main>
                
                 <section>
-                    <img src={info} alt="" />
+                    <img className="banner"src={info} alt="" />
                 </section>
                 <div className="container_img">
                     <img className="imagem" src={nots} alt="" />

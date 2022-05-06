@@ -204,7 +204,12 @@ section{
     align-items: center;
     justify-content: center;
 }
-section img {
+.input-baner{
+    width: 1200px;
+    height: 326px;
+    border-radius: 35px
+}
+.banner{
     inset: 0;
     object-fit: cover;
     
@@ -214,6 +219,7 @@ section img {
     border-radius: 35px;
     filter: drop-shadow(0px 20px 32px rgba(0, 0, 0, 0.50));
 }
+
 section img:hover{
     transform: scale(1.15);
 }
@@ -223,6 +229,11 @@ section img:hover{
     align-items: center;
     width: 1240px;
     margin-bottom: 31px;
+}
+.input-imagem{
+    width:373px ;
+    height: 150px;
+    border-radius: 35px;
 }
 .imagem{
     inset: 0;
