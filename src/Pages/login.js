@@ -5,15 +5,12 @@ import "../../src/Assets/css/style.css"
 
 
 
-
-export default function Gereciamento() {
+export default function Login() {
 
     return (
         <div>
             <Header />
-           
-
-            <Footer />
+            
         </div>
     )
 }

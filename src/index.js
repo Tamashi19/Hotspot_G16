@@ -4,6 +4,8 @@ import './index.css';
 import Home from '../src/Home';
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter as Router, Routes, Navigate } from 'react-router-dom';
+import Gereciamento from './Pages/gerenciamento';
+import Login from './Pages/login';
 
 // import ReactDOM from 'react-router-dom';
 // import {
@@ -23,8 +25,8 @@ const routing = (
     <div>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        {/* <Route path="/notfound" element={<NotFound/>}/>
-        <Route path="*" element={<Navigate to ="/notfound" />}/> */}
+        <Route exact path="/Gerenciamento" element={<Gereciamento/>}/>
+        <Route exact path="/Login" element={<Login/>}/>
       </Routes>
     </div>
   </Router>
