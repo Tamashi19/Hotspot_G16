@@ -23,6 +23,7 @@ export default function Gereciamento() {
             <main>
                
                <section>
+                   
                    <input className="input-banner" type="file"id="file-browser-input" name="file-browser-input" 
                    ref={input=>this.fileInput=input}
                    onDragOver={(e)=>{
