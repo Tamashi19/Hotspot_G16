@@ -207,7 +207,26 @@ section{
 .input-baner{
     width: 1200px;
     height: 326px;
-    border-radius: 35px
+    
+}
+body {
+    font-family: Helvetica;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label {
+    padding: 20px 10px;
+    width: 200px;
+    background-color: #333;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
 }
 .banner{
     inset: 0;
@@ -233,7 +252,7 @@ section img:hover{
 .input-imagem{
     width:373px ;
     height: 150px;
-    border-radius: 35px;
+    
 }
 .imagem{
     inset: 0;

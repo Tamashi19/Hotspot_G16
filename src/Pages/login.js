@@ -10,7 +10,7 @@ export default function Login() {
     return (
         <div>
             <Header />
-            
+            <a  href="/Gerenciamento">Login</a>
         </div>
     )
 }
