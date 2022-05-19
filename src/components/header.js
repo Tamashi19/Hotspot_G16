@@ -12,8 +12,9 @@ export default function Header() {
       <header>
         <div className="container">
           <div className="header_container">
-            <img src={LOGO} alt="" />
-            
+          <a href="/">
+            <img src={LOGO} onClick alt="" />
+            </a>
           </div>
         </div>
       </header>

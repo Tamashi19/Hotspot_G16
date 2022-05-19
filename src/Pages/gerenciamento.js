@@ -29,7 +29,7 @@ export default function Gereciamento() {
 	// 	formData.append('File', selectedFile);
 
 	// 	fetch(
-	// 		'https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>',
+	// 		'https://localhost5001/api/1/upload?key=<chave da api>',
 	// 		{
 	// 			method: 'POST',
 	// 			body: formData,
