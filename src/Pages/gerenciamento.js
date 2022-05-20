@@ -1,72 +1,147 @@
-import React from 'react';
-import Header from "../../src/components/header";
-import Footer from "../../src/components/footer";
-import "../../src/Assets/css/style.css";
+
+   
+import React, {useState, useEffect} from "react";
+import axios from 'axios';
 
 
 
-// class DraggableUploader extends React.Component{
-//     constructor(props){
-//       super(props);
-//       this.state={};
-//     }
-//   }
+export const campanha = () => {
+    
+    // Cadastrar
 
 
+    const[imagem] = UseState('');
 
-export default function Gereciamento() {
-    // const [selectedFile, setSelectedFile] = useState();
-	// const [isFilePicked, setIsFilePicked] = useState(false);
+    // Listar
+    const[produtos, setProdutos] = UseState([]);
 
-	// const changeHandler = (event) => {
-	// 	setSelectedFile(event.target.files[0]);
-	// 	setIsSelected(true);
-	// };
 
-	// const handleSubmission = () => {
-	// 	const formData = new FormData();
+    const Cadastrar = (event) => {
 
-	// 	formData.append('File', selectedFile);
+      event.preventDefault();
+      
+      var formData = new FormData();
+      
+      const target = document.getElementById('arquivo')
+      const file = target.files[0]
+      formData.append('arquivo', file, file.name)
+      
+      formData.append('id', 0);
+      formData.append('imagem', imagem);
 
-	// 	fetch(
-	// 		'https://localhost5001/api/1/upload?key=<chave da api>',
-	// 		{
-	// 			method: 'POST',
-	// 			body: formData,
-	// 		}
-	// 	)
-	// 		.then((response) => response.json())
-	// 		.then((result) => {
-	// 			console.log('Success:', result);
-	// 		})
-	// 		.catch((error) => {
-	// 			console.error('Error:', error);
-	// 		});
-	// };
-	// };
+      axios({
+        method: "post",
+        url: "http://localhost:5001/api",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then(function (response) {
+        console.log(response);
+        Listar();
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+    }
 
-    return (
-        <div>
-            <Header />
-            {/* <input type="file" name="file" onChange={changeHandler} />
-			{isSelected ? (
-				<div>
-					<p>Filename: {selectedFile.name}</p>
-					<p>Filetype: {selectedFile.type}</p>
-					<p>Size in bytes: {selectedFile.size}</p>
-					<p>
-						lastModifiedDate:{' '}
-						{selectedFile.lastModifiedDate.toLocaleDateString()}
-					</p>
-				</div>
-			) : (
-				<p>Select a file to show details</p>
-			)}
-			<div>
-				<button onClick={handleSubmission}>Submit</button>
-			</div> */}
+    const Listar = () => {
+      axios.get('http://localhost:5001/api')
+      .then(resposta => {
+        setProdutos(resposta.data);
+      })
+      .catch(erro => console.log(erro))
+    }
 
-            <Footer />
-        </div>
+    const Remover = (id) => {
+      axios.delete('http://localhost:5001/api'+id)
+      .then(() => {
+        Listar();
+      })
+      .catch(erro => console.log(erro))
+    }
+
+    const LerOCR = (event) => {
+
+      event.preventDefault();
+
+      var formData = new FormData();
+
+      const element = document.getElementById("codigo");
+      const file = element.files[0];
+
+      formData.append("url", file, file.name);
+
+    }
+
+    UseEffect(() => {
+      Listar();      
+    },[]);
+
+    return(
+        <>
+          <main className="container">
+
+            <h2>Adicionar imagem</h2>
+            <form encType="multipart/form-data">
+              <input
+                className="input__login"  
+                
+              />
+
+              <input
+                className="input__login" 
+                type="text" 
+                
+                id="codigo" 
+               
+              />
+
+              <input 
+                type="file" 
+                id="codigo" 
+                accept="image/png, image/jpeg" 
+                onChange={(e) => LerOCR(e)} 
+              />
+
+              <label htmlFor="ativo">
+              <input 
+                type="checkbox" 
+                name="ativo" 
+                id="ativo" 
+                checked={ativo} 
+                onChange={(e) => setAtivo(e.target.checked)} 
+              /> Produto ativo? 
+              </label>
+
+              <input type="file" id="arquivo" accept="image/png, image/jpeg" />
+
+              <button 
+                type="submit" 
+                className="btn btn__cadastro"
+                onClick={(e) => Cadastrar(e)}
+              >
+                Cadastrar
+              </button>
+
+            </form>
+
+          
+
+            {produtos.map(item => 
+              <div className="card" key={item.id}>
+                <img src={"http://localhost:5001/StaticFiles/Images/"+item.imagem} alt="" />
+                <div>
+                  
+                  <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span>
+                </div>
+                <button className="excluir" onClick={() => Remover(item.id)}>Excluir</button>
+              </div>
+            )}
+
+          </main>
+        </>
     )
 }
+
+export default Gerenciamento;
