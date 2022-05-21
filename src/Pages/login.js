@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from "../../src/components/header";
 import Footer from "../../src/components/footer";
-import "../../src/Assets/css/style.css"
+import "../../src/Assets/css/login.css"
 import svg from "../../src/Assets/img/password.svg"
 import user from "../../src/Assets/img/user.svg"
 
