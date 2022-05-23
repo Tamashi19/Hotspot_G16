@@ -7,6 +7,7 @@ import { Route, BrowserRouter as Router, Routes, Navigate } from 'react-router-d
 import Gereciamento from './Pages/gerenciamento';
 import Login from './Pages/login';
 
+
 // import ReactDOM from 'react-router-dom';
 // import {
 //   Route,
@@ -27,6 +28,8 @@ const routing = (
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/Gerenciamento" element={<Gereciamento/>}/>
         <Route exact path="/Login" element={<Login/>}/>
+        <Route path="*" element={<Navigate to ="/notfound" />}/>
+        
       </Routes>
     </div>
   </Router>

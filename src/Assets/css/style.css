@@ -281,6 +281,20 @@ section img:hover{
    transition: transform .75s;
    inset: 0;
 }
+input[type="file"] {
+    display: none;
+}
+.laybel {
+    padding: 20px 10px;
+    width: 200px;
+    background-color: rgb(255, 0, 0);
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
   
 .container_img{
         display: flex;
