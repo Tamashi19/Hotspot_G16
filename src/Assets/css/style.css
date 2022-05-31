@@ -285,6 +285,9 @@ input[type="file"] {
     display: none;
 }
 .laybel {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     padding: 20px 10px;
     width: 200px;
     background-color: rgb(255, 0, 0);
@@ -292,8 +295,21 @@ input[type="file"] {
     text-transform: uppercase;
     text-align: center;
     display: block;
-    margin-top: 10px;
+   
     cursor: pointer;
+}
+.imp1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerImput{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
   
 .container_img{
@@ -312,6 +328,14 @@ input[type="file"] {
 .input-imagem{
     width:373px ;
     height: 150px;
+    
+}
+.inputs{
+    width: 50vw;
+    height: 5vw;
+    display: flex;
+    align-items:center ;   
+     justify-content: space-between;
     
 }
 
@@ -351,4 +375,11 @@ h1{
     font-weight: 500;
     font-size: 25px;
 
+}
+
+.botao{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

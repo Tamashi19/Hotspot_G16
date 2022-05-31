@@ -17,7 +17,7 @@ export const Gerenciamento = () => {
 
     event.preventDefault();
 
-  
+
 
     var formData = new FormData();
 
@@ -82,72 +82,83 @@ export const Gerenciamento = () => {
 
   return (
     <>
-      <Header/>
+      <Header />
       <main className="container">
 
-        <h2>Adicione uma imagem</h2>
-        <form classNeme="escolherArquivo" encType="multipart/form-data">
+        <div className="containerImput">
+          <h2>Adicione uma imagem</h2>
+          <form classNeme="escolherArquivo" encType="multipart/form-data">
 
 
-        <label className="laybel" for="codigo">Enviar arquivo</label>
-            
-          <input
-            type="file" name="codigo" 
-            
-            id="codigo"
-            accept="image/png, image/jpeg"
-            onChange={(e) => LerOCR(e)}
-          />
-          <label className="laybel" for="codigo">Enviar arquivo</label>
-          <input
-          name="codigo"
-            type="file"
-            id="codigo"
-            accept="image/png, image/jpeg"
-            onChange={(e) => LerOCR(e)}
-          />
-          <label className="laybel" for="codigo">Enviar arquivo</label>
-          <input
-          name="codigo"
-            type="file"
-            id="codigo"
-            accept="image/png, image/jpeg"
-            onChange={(e) => LerOCR(e)}
-          />
-          <label className="laybel" for="codigo">Enviar arquivo</label>
-          <input
-          name="codigo"
-            type="file"
-            id="codigo"
-            accept="image/png, image/jpeg"
-            onChange={(e) => LerOCR(e)}
-          />
+            <div className="imp1">
+              <label className="laybel" for="codigo">Enviar arquivo</label>
 
-          <button
-            type="submit"
-            className="btn btn__cadastro"
-            onClick={(e) => Cadastrar(e)}
-          >
-            Cadastrar
-          </button>
+              <input
+                type="file" name="codigo"
 
-        </form>
-
-
-
-        {imagens.map(item =>
-          <div className="card" key={item.id}>
-            <img src={"http://localhost:5001/StaticFiles/Images/" + item.imagem} alt="" />
-            <div>
-
-              <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span>
+                id="codigo"
+                accept="image/png, image/jpeg"
+                onChange={(e) => LerOCR(e)}
+              />
             </div>
-            <button className="excluir" onClick={() => Remover(item.id)}>Excluir</button>
+            <div className="inputs">
+              <label className="laybel" for="codigo">Enviar arquivo</label>
+              <input
+                name="codigo"
+                type="file"
+                id="codigo"
+                accept="image/png, image/jpeg"
+                onChange={(e) => LerOCR(e)}
+              />
+              <label className="laybel" for="codigo">Enviar arquivo</label>
+              <input
+                name="codigo"
+                type="file"
+                id="codigo"
+                accept="image/png, image/jpeg"
+                onChange={(e) => LerOCR(e)}
+              />
+              <label className="laybel" for="codigo">Enviar arquivo</label>
+              <input
+                name="codigo"
+                type="file"
+                id="codigo"
+                accept="image/png, image/jpeg"
+                onChange={(e) => LerOCR(e)}
+              />
+
+            </div>
+            <div className="botao">
+
+              <button
+                type="submit"
+                className="btn btn__cadastro"
+                onClick={(e) => Cadastrar(e)}
+              >
+                Cadastrar
+              </button>
+            </div>
+
+          </form>
+
+
+
+
           </div>
-        )}
+          {imagens.map(item =>
+            <div className="card" key={item.id}>
+              <img src={"http://localhost:5001/StaticFiles/Images/" + item.imagem} alt="" />
+              <div>
+
+                <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span>
+              </div>
+              <button className="excluir" onClick={() => Remover(item.id)}>Excluir</button>
+            </div>
+          )}
+
 
       </main>
-      <Footer/>
+      <Footer />
     </>
   )
 }
