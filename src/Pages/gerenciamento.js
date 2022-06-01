@@ -28,7 +28,7 @@ export const Gerenciamento = () => {
     formData.append('id', 0);
     formData.append('imagem', imagem);
 
-    debugger
+   
 
     axios({
       method: "post",
@@ -62,19 +62,19 @@ export const Gerenciamento = () => {
       .catch(erro => console.log(erro))
   }
 
-  const LerOCR = (event) => {
+  // const LerOCR = (event) => {
 
-    event.preventDefault();
+  //   event.preventDefault();
 
-    var formData = new FormData();
+  //   var formData = new FormData();
 
-    const element = document.getElementById("codigo");
-    const file = element.files[0];
+  //   const element = document.getElementById("codigo");
+  //   const file = element.files[0];
 
-    formData.append("url", file, file.name);
+  //   formData.append("url", file, file.name);
 
 
-  }
+  // }
 
   useEffect(() => {
     Listar();
@@ -87,48 +87,48 @@ export const Gerenciamento = () => {
 
         <div className="containerImput">
           <h2>Adicione uma imagem</h2>
-          <form classNeme="escolherArquivo" encType="multipart/form-data">
+          <form className="escolherArquivo" encType="multipart/form-data">
 
-
-            <div className="imp1">
-              <label className="laybel" for="codigo">Enviar arquivo</label>
+{/* 
+            <div className="imp1"> */}
+              <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
 
               <input
                 type="file" name="codigo"
 
                 id="codigo"
                 accept="image/png, image/jpeg"
-                onChange={(e) => LerOCR(e)}
+                // onChange={(e) => LerOCR(e)}
               />
-            </div>
-            <div className="inputs">
-              <label className="laybel" for="codigo">Enviar arquivo</label>
+            {/* </div> */}
+            {/* <div className="inputs"> */}
+              {/* <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
               <input
                 name="codigo"
                 type="file"
                 id="codigo"
                 accept="image/png, image/jpeg"
-                onChange={(e) => LerOCR(e)}
-              />
-              <label className="laybel" for="codigo">Enviar arquivo</label>
+                // onChange={(e) => LerOCR(e)}
+              /> */}
+              {/* <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
               <input
                 name="codigo"
                 type="file"
                 id="codigo"
                 accept="image/png, image/jpeg"
-                onChange={(e) => LerOCR(e)}
+                // onChange={(e) => LerOCR(e)}
               />
-              <label className="laybel" for="codigo">Enviar arquivo</label>
+              <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
               <input
                 name="codigo"
                 type="file"
                 id="codigo"
                 accept="image/png, image/jpeg"
-                onChange={(e) => LerOCR(e)}
-              />
+                // onChange={(e) => LerOCR(e)}
+              /> */}
 
-            </div>
-            <div className="botao">
+            {/* </div> */}
+            {/* <div className="botao"> */}
 
               <button
                 type="submit"
@@ -137,7 +137,7 @@ export const Gerenciamento = () => {
               >
                 Cadastrar
               </button>
-            </div>
+            {/* </div> */}
 
           </form>
 
@@ -150,7 +150,7 @@ export const Gerenciamento = () => {
               <img src={"http://localhost:5001/StaticFiles/Images/" + item.imagem} alt="" />
               <div>
 
-                <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span>
+                {/* <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span> */}
               </div>
               <button className="excluir" onClick={() => Remover(item.id)}>Excluir</button>
             </div>
