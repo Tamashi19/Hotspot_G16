@@ -2,43 +2,46 @@ import Header from "../components/header";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Footer from "../components/footer";
+import { append } from "dom/lib/mutation";
 
 
 
 export const Gerenciamento = () => {
 
   // Cadastrar
-  const [imagem] = useState('');
-
+  const [imagem, setImagem] = useState();
   // Listar
   const [imagens, setImagens] = useState([]);
 
   const Cadastrar = (event) => {
-
     event.preventDefault();
-
-
-
     var formData = new FormData();
-
-    const target = document.getElementById('arquivo')
+    
+    const target = document.getElementById('imagem')
+    console.log(target)
     const file = target.files[0]
-    formData.append('arquivo', file, file.name)
+    console.log(file)
 
-    formData.append('id', 0);
-    formData.append('imagem', imagem);
-
+    if (target.files[0] == undefined) {
+      console.log("tá undefined")
+      formData.append('File', file)
+  } else {
+      formData.append('File', file, file.name)
+  }
    
-
+    // formData.append('file', file, file.name)
+    // formData.append('id', 0);
+    // formData.append('imagem', imagem);
+console.log(formData)
+    
     axios({
       method: "post",
-      url: "http://localhost:5001/api/Campanha",
+      url: "https://localhost:5001/api/Campanha",
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then(function (response) {
         console.log(response);
-        Listar();
       })
       .catch(function (response) {
         //handle error
@@ -46,16 +49,16 @@ export const Gerenciamento = () => {
       });
   }
 
-  const Listar = () => {
-    axios.get('http://localhost:5001/api/Campanha')
+  function Listar () {
+    axios.get('https://localhost:5001/api/Campanha')
       .then(resposta => {
         setImagens(resposta.data);
       })
       .catch(erro => console.log(erro))
   }
 
-  const Remover = (id) => {
-    axios.delete('http://localhost:5001/api/Camapanha' + id)
+  function Remover  (id) {
+    axios.delete('https://localhost:5001/api/Camapanha' + id)
       .then(() => {
         Listar();
       })
@@ -94,8 +97,8 @@ export const Gerenciamento = () => {
               <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
 
               <input
-                type="file" name="codigo"
-
+                type="file"
+                name="imagem"
                 id="codigo"
                 accept="image/png, image/jpeg"
                 // onChange={(e) => LerOCR(e)}
@@ -133,7 +136,7 @@ export const Gerenciamento = () => {
               <button
                 type="submit"
                 className="btn btn__cadastro"
-                onClick={(e) => Cadastrar(e)}
+                onClick={Cadastrar}
               >
                 Cadastrar
               </button>
@@ -147,7 +150,7 @@ export const Gerenciamento = () => {
           </div>
           {imagens.map(item =>
             <div className="card" key={item.id}>
-              <img src={"http://localhost:5001/StaticFiles/Images/" + item.imagem} alt="" />
+              <img src={"https://localhost:5001/StaticFiles/Images/" + item.imagem} alt="" />
               <div>
 
                 {/* <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span> */}
